@@ -1,0 +1,1641 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 26.16.1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+
+<title>Internationalization Glossary</title>
+
+
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+.hljs{background:0 0!important}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+h2,h3,h4,h5,h6{position:relative}
+aside.example .marker>a.self-link{color:inherit}
+:is(h2,h3,h4,h5,h6)>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+:is(h2,h3,h4,h5,h6)>a.self-link::before{content:"§";display:block}
+@media (max-width:767px){
+dd{margin-left:0}
+:is(h2,h3,h4,h5,h6)>a.self-link{left:auto;top:auto}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+
+
+
+<style>
+
+.letter_anchor {
+    font-weight: bold;
+    color: #66cc00;
+    font-size: 140%;
+    margin-block-start: 3em;
+    color: #54A800;
+    }
+#link_list a {
+    font-weight: bold;
+    
+    font-size: 120%;
+    color: #66cc00;
+    min-width: 1.5em;
+    display: inline-block;
+    text-align: center;
+    color: #54A800;
+    }
+#link_list a:hover {
+    background-color: antiquewhite;
+    }
+.termref {
+    font-style: italic;
+    text-decoration: underline dotted;
+    }
+.alt_name {
+    font-weight: bold;
+    font-style: italic;
+    }
+.see-also {
+    font-size: 80%;
+    font-style: italic;
+    }
+
+</style>
+
+<meta name="description" content="This document provides definitions for various terms related to W3C internationalization.">
+<link rel="canonical" href="https://www.w3.org/TR/i18n-glossary/">
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "specStatus": "ED",
+  "noRecTrack": true,
+  "shortName": "i18n-glossary",
+  "copyrightStart": "2021",
+  "edDraftURI": "https://w3c.github.io/i18n-glossary/",
+  "editors": [
+    {
+      "name": "Richard Ishida",
+      "mailto": "ishida@w3.org",
+      "company": "W3C",
+      "w3cid": 3439,
+      "url": "mailto:ishida@w3.org"
+    }
+  ],
+  "github": "w3c/i18n-glossary",
+  "group": "i18n",
+  "publishISODate": "2021-08-02T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 02 August 2021"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED"></head>
+
+<body class="h-entry informative toc-inline"><div class="head">
+    <a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72">
+  </a> <h1 id="title" class="title">Internationalization Glossary</h1>
+    
+    <h2><a href="https://www.w3.org/standards/types">W3C Editor's Draft</a> <time class="dt-published" datetime="2021-08-02">02 August 2021</time></h2>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        <dt>This version:</dt><dd>
+                <a class="u-url" href="https://w3c.github.io/i18n-glossary/">https://w3c.github.io/i18n-glossary/</a>
+              </dd><dt>Latest published version:</dt><dd>
+                <a href="https://www.w3.org/TR/i18n-glossary/">https://www.w3.org/TR/i18n-glossary/</a>
+              </dd>
+        <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/i18n-glossary/">https://w3c.github.io/i18n-glossary/</a></dd>
+        <dt>History:</dt><dd>
+      <a href="https://www.w3.org/standards/history/i18n-glossary">Publication history</a>
+    </dd><dd>
+        <a href="https://github.com/w3c/i18n-glossary/commits/">Commit history</a>
+      </dd>
+        
+        
+        
+        
+        
+        <dt>Editor:</dt>
+        <dd class="editor p-author h-card vcard" data-editor-id="3439">
+    <a class="ed_mailto u-email email p-name" href="mailto:ishida@w3.org">Richard Ishida</a> (<span class="p-org org h-org">W3C</span>)
+  </dd>
+        
+        
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/w3c/i18n-glossary/">GitHub w3c/i18n-glossary</a>
+        (<a href="https://github.com/w3c/i18n-glossary/pulls/">pull requests</a>,
+        <a href="https://github.com/w3c/i18n-glossary/issues/new/choose">new issue</a>,
+        <a href="https://github.com/w3c/i18n-glossary/issues/">open issues</a>)
+      </dd>
+        
+      </dl>
+    </details>
+    
+    
+    
+    <p class="copyright">
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    ©
+    2021
+    
+    <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+    <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
+    <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+    <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
+  </p>
+    <hr title="Separator for header">
+  </div>
+<div id="abstract" class="introductory"><h2>Abstract</h2>
+  <p>This document provides definitions for various terms related to <abbr title="World Wide Web Consortium">W3C</abbr> internationalization.</p>
+</div>
+
+
+<div id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this
+      document at the time of its publication. Other documents may supersede
+      this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision
+      of this technical report can be found in the
+      <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
+      https://www.w3.org/TR/.</em></p>
+  <p>We welcome comments on this document, but to make it easier to track them, please raise 
+  separate issues for each comment, and point to the section 
+  you are commenting on using a URL.</p>
+<p>
+    This document was published by the <a href="https://www.w3.org/International/core/">Internationalization Working Group</a> as an
+    Editor's Draft. 
+    
+  </p><p>
+    <a href="https://github.com/w3c/i18n-glossary/issues/">GitHub Issues</a> are preferred for
+          discussion of this specification.
+        
+    
+  </p><p>
+      Publication as an Editor's Draft does not imply endorsement
+      by the <abbr title="World Wide Web Consortium">W3C</abbr> Membership. 
+    </p><p>This is a draft document and may be updated, replaced
+  or obsoleted by other documents at any time. It is inappropriate to cite this
+  document as other than work in progress.
+  </p><p></p><p>
+    
+        This document was produced by a group
+        operating under the
+        <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
+          Policy</a>.
+       The group does not expect this document to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.
+    
+                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
+                <a rel="disclosure" href="https://www.w3.org/groups/wg/i18n-core/ipr">public list of any patent disclosures</a>
+          made in connection with the deliverables of
+          the group; that page also includes
+          instructions for disclosing a patent. An individual who has actual
+          knowledge of a patent which the individual believes contains
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a>
+          must disclose the information in accordance with
+          <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+        
+    
+  </p><p>
+                  This document is governed by the
+                  <a id="w3c_process_revision" href="https://www.w3.org/2020/Process-20200915/">15 September 2020 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                </p></div><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#links"><bdi class="secno">2. </bdi>Alphabetical links</a></li><li class="tocline"><a class="tocxref" href="#glossary"><bdi class="secno">3. </bdi>Glossary</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">A.1 </bdi>Informative references</a></li></ol></li></ol></nav>
+
+<section id="introduction-0">
+<h2 id="introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2>
+
+<p>This document can be pointed to for definitions of terms, or these definitions may be copied to other documents and slightly adapted.</p>
+<p>The <abbr title="World Wide Web Consortium">W3C</abbr> Internationalization Working Group also uses <a href="https://www.unicode.org/glossary/#normalization_form_d">definitions provided by the Unicode Consortium</a>.</p>
+</section>
+
+
+
+
+
+<section id="alphabetical-links">
+<h2 id="links"><bdi class="secno">2. </bdi>Alphabetical links<a class="self-link" aria-label="§" href="#links"></a></h2>
+
+<div id="link_list" spellcheck="false">
+<a href="#a">A</a>
+<a href="#b">B</a>
+<a href="#c">C</a>
+<a href="#d">D</a>
+<a href="#e">E</a>
+<a href="#f">F</a>
+<a href="#g">G</a>
+<a href="#i">I</a>
+<a href="#l">L</a>
+<a href="#m">M</a>
+<a href="#n">N</a>
+<a href="#p">P</a>
+<a href="#r">R</a>
+<a href="#s">S</a>
+<a href="#t">T</a>
+<a href="#u">U</a>
+<a href="#v">V</a>
+<a href="#w">W</a>
+<a href="#z">Z</a>
+</div>
+</section>
+
+
+
+
+
+<section id="glossary">
+<h2 id="x3-glossary"><bdi class="secno">3. </bdi>Glossary<a class="self-link" aria-label="§" href="#glossary"></a></h2>
+
+
+
+<div class="letter_anchor" id="a">A</div>
+
+<p><dfn data-plurals="application internal identifiers" id="dfn-application-internal-identifier" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Application internal identifiers</dfn>. Identifiers defined by or assigned by a user in a <a href="#def_vocabulary" class="termref" id="ref-for-def_vocabulary-1">vocabulary</a> that is internal to the document format or protocol and not intended for human interaction. Such values are generally not <a href="#def_localizable_content" class="termref" id="ref-for-def_localizable_content-1">localizable content</a>.</p>
+
+<p><dfn data-lt="ASCII case-insensitive|ASCII case-insensitive matching" id="def_ascii_case-insensitive" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">ASCII case-insensitive matching</dfn>. <a href="https://infra.spec.whatwg.org/#ascii-case-insensitive">Defined</a> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-infra" title="Infra Standard">INFRA</a></cite>], this compares two sequences of code points as if all ASCII code points in the range 0x41 to 0x5A (A to Z) were mapped to the corresponding code points in the range 0x61 to 0x7A (a to z), but other code points are not <a class="termref" href="#def_case_folding" id="ref-for-def_case_folding-1">case-folded</a>. ASCII case-insensitive matching can be required when a <a href="#def_vocabulary" class="termref" id="ref-for-def_vocabulary-2">vocabulary</a> is itself constrained to ASCII.</p>
+
+
+
+
+
+
+<div class="letter_anchor" id="b">B</div>
+
+<p><dfn id="def_base_direction" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Base direction</dfn> determines the general arrangement and progression of content when <a href="#def_bidirectional_text" class="termref" id="ref-for-def_bidirectional_text-1">bidirectional text</a> is displayed. The <a href="#def_uba" class="termref" id="ref-for-def_uba-1">Unicode Bidirectional Algorithm</a> is primarily focused on arranging adjacent characters, based on character properties. Base direction works at a higher level, and dictates (a) the visual order and direction in which runs of strongly-typed LTR and RTL character are displayed, and (b) where there are weakly-typed characters such as punctuation, the placement of those items relative to the other content.</p>
+
+
+<p><dfn data-lt="basic multilingual plane|BMP|Basic Multilingual Plane (BMP)" id="def_bmp" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Basic Multilingual Plane (BMP)</dfn>. The first 65,536 code point positions in the Unicode character set are said to constitute the Basic Multilingual Plane. The BMP includes most of the more commonly used characters.</p>
+
+
+<p><strong><em>Bidi algorithm</em></strong>, see <a href="#def_uba" class="termref" id="ref-for-def_uba-2">Unicode Bidirectional Algorithm</a>.</p>
+
+<p><dfn data-lt="bidirectional text|bidi text|bidi|Bidirectional text" id="def_bidirectional_text" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Bidirectional text</dfn> (often referred to as "bidi text" for short) refers to text that mixes runs of both LTR and RTL text inline. It is common for right-to-left scripts, such as Arabic and Hebrew, to contain short runs of left-to-right text (most commonly in the Latin script), and several of the scripts that are predominantly right-to-left display  numbers from left-to-right. Bidirectional text is the source of many of the difficulties when dealing with RTL scripts.</p>
+
+<p><dfn data-lt="basic language range|Basic language range" id="def_basic_language_range" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Basic language range</dfn>. A <a href="#def_language_range" class="termref" id="ref-for-def_language_range-1">language range</a> consisting of a sequence of subtags separated by hyphens. That is, it is identical in appearance to a language tag.</p>
+
+<p><dfn id="dfn-bidi-isolation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Bidi isolation</dfn> often needs to be applied to a range of text in order to prevent the automatic rules of the Unicode Bidirectional Algorithm incorrectly ordering that content in relation to the surrounding text. For example, numbers following right-to-left text in memory are automatically positioned to the left of that text by the Bidi Algorithm, but sometimes need to appear to the right. Another example occurs when lists of RTL items occur in a LTR sentence: the Bidi Algorithm will automatically assume that the order of items in the list should be "3 ,2 ,1", but actually what's needed is "1, 2, 3". In HTML, bidi isolation can be applied to a range of text by enclosing it in an element with a <code class="kw" translate="no">dir</code> attribute. In plain text there are Unicode formatting characters that can do the job. These mechanisms remove unwanted 'spillover effects'.</p>
+
+
+
+
+
+<div class="letter_anchor" id="c">C</div>
+
+<p><dfn data-lt="canonical Unicode locale identifier|canonical tag|canonical locale|Canonical Unicode locale identifier" data-plurals="canonical unicode locale identifiers" id="def_canonical_unicode_locale_identifier" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Canonical Unicode locale identifier</dfn>. A <a href="#def_well_formed" class="termref" id="ref-for-def_well_formed-1">well-formed language tag</a> resulting from the application of the <a href="#def_unicode_locale" class="termref" id="ref-for-def_unicode_locale-1">Unicode locale identifier</a> canonicalization rules found in [<cite><a class="bibref" data-link-type="biblio" href="#bib-uax35" title="Unicode Locale Data Markup Language (LDML)">UAX35</a></cite>]. This process converts any <a href="#def_valid" class="termref" id="ref-for-def_valid-1">valid</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-bcp47" title="Tags for Identifying Languages">BCP47</a></cite>] <a href="#def_language_tag" id="ref-for-def_language_tag-1">language tag</a> into a valid <a href="#def_unicode_locale" class="termref" id="ref-for-def_unicode_locale-2">Unicode locale identifier</a>.  For example, deprecated subtags or irregular grandfathered tags are replaced with their preferred value from the <a href="#def_iana_language_subtag_registry" class="termref" id="ref-for-def_iana_language_subtag_registry-1">IANA language subtag registry</a>.</p>
+
+<p><dfn id="def_encoding" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Character encoding</dfn>. The way the <a class="termref" href="#def_coded_character_set" id="ref-for-def_coded_character_set-1">coded character set</a> is mapped to bytes for manipulation in a computer. Commonly referred to as just the <span class="alt_name">encoding</span>. For examples and further descriptions see <a href="https://www.w3.org/International/articles/definitions-characters/index#charsets">Character encodings: Essential concepts</a>.</p>
+
+<p><dfn id="def_character_set" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Character set</dfn> or <span class="alt_name">repertoire</span>. The set of characters one might use for a particular purpose – be it those required to support Western European languages in computers, or those a Chinese child will learn at school in the third grade (nothing to do with computers).</p>
+
+<p><dfn id="def_case_mapping" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Case mapping</dfn> is the process of transforming characters to a specific case, such as UPPER, lower, or Titlecase. For those scripts that have a case distinction, Unicode defines a <em>default</em> UPPER, lower, and Titlecase character mapping for each Unicode code point. Case mapping, at first, appears simple. However there are variations that need to be considered when treating the full range of Unicode in diverse languages.</p>
+
+<p><dfn id="def_case_folding" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Case folding</dfn> is the process of making two texts which differ only in case identical for comparison purposes, that is, it is meant for the purpose of string matching. This is distinct from <a href="#def_case_mapping" class="termref" id="ref-for-def_case_mapping-1">case mapping</a>, which is primarily meant for display purposes. As with the default case mappings, Unicode defines default case fold mappings ("case folding") for each Unicode code point. Unicode defines two forms of case folding.</p>
+
+<p><dfn data-lt="case-sensitive|Case sensitive matching" id="def_case_sensitive" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Case sensitive matching</dfn>. Code points are compared directly with no case folding.</p>
+
+<p><dfn id="def_coded_character_set" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Coded character set</dfn>. A set of characters where a unique number has been assigned to each character. Units of a coded character set are known as <a href="#def_code_point" class="termref" id="ref-for-def_code_point-1">code points</a>.</p>
+
+<p><dfn id="def_code_point" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Code point</dfn>. A code point value represents the position of a character in a coded character set. For example, the code point for the letter <span class="qchar">á</span> in the Unicode coded character set is 225 in decimal, or 0xE1 in hexadecimal notation. Hexadecimal notation is commonly used for referring to code points. See also <a class="termref" href="#def_unicode_code_point" id="ref-for-def_unicode_code_point-1">Unicode code point</a>.</p>
+
+<p><strong><em>CLDR</em></strong>, see <a href="#def_common_locale_data_repository" class="termref" id="ref-for-def_common_locale_data_repository-1">Common Locale Data Repository</a>.</p>
+
+<p><dfn data-lt="Unicode code point|Unicode code points" data-plurals="unicode code points" id="def_unicode_code_point" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Unicode code point</dfn>. The numeric value assigned to each Unicode character. Unicode code points range from <code class="kw" translate="no">0</code> to <code class="kw" translate="no">0x10FFFF</code>. (See Section 4.1 in [<cite><a class="bibref" data-link-type="biblio" href="#bib-charmod" title="Character Model for the World Wide Web 1.0: Fundamentals">CHARMOD</a></cite>] for a deeper discussion of character encoding terminology.) Unicode code points are denoted as <code class="kw" translate="no">U+<em>hhhh</em></code>, where <code class="kw" translate="no"><em>hhhh</em></code> is a sequence of at least four, and at most six hexadecimal digits. For example, the character <span class="codepoint"><span lang="en">€</span> [<span class="uname">U+20AC EURO SIGN</span>]</span> has the code point <span class="uname" translate="no">U+20AC</span>, while the character <span class="codepoint">😺</span> [<span class="uname">U+1F63A SMILING CAT FACE WITH OPEN MOUTH</span>] has the code point <span class="uname" translate="no">U+1F63A</span>.</p>
+
+<p><dfn data-lt="common locale data repository|CLDR|Common Locale Data Repository" id="def_common_locale_data_repository" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Common Locale Data Repository</dfn> (or <em>CLDR</em>). The Common Locale Data Repository ([<cite><a class="bibref" data-link-type="biblio" href="#bib-cldr" title="Unicode Common Locale Data Repository">CLDR</a></cite>]) is a Unicode Consortium project that defines, collects, and curates sets of data needed to enable <a href="#locale" class="termref" id="ref-for-locale-1">locales</a> in systems or operating environments. CLDR data and its locale model are widely adopted, particularly in browsers.</p>
+
+<p><dfn data-lt="consumer|consumers|Consumer" id="dfn-consumer" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Consumer</dfn>. When talking about strings on the Web, the <abbr title="World Wide Web Consortium">W3C</abbr> Internationalization group refers to a consumer as any process that receives natural language strings, either for display or processing.</p>
+
+
+
+
+
+<div class="letter_anchor" id="d">D</div>
+
+<p><dfn id="def_dst" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Daylight Saving Time</dfn> (DST) or "Summer Time" was adopted as a way of allowing people more sunlight hours in the evening. DST varies from country to country (not to mention locality-to-locality) and often has special one-off changes to accommodate special events. Not all regions observe DST: usually those closer to the equator do not need it. In converting times it is  important to know when DST was introduced, and sometimes abandoned, for the local area, as well as on what dates DST starts and ends (which can vary from year to year). For example, Korea Standard Time and Japan Standard Time currently use the same <a href="#def_zone_offset" class="termref" id="ref-for-def_zone_offset-1">zone offset</a> and neither uses daylight saving. However, Japan abandoned DST in 1951, while South Korea used it last in 1988, so an application that tracks time values that reach back that far might need to track these time zones separately.</p>
+
+<p><dfn id="def_document_character_set" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Document character set</dfn>. For XML and HTML (from version 4.0 onwards) the document character set is defined to be the Universal
+    Character Set (UCS) as defined by both ISO/IEC 10646 and Unicode standards. What this means is that the logical model describing how XML and HTML are processed is described in terms of the set of characters defined by
+    Unicode. In practical terms, this means that browsers usually convert all text to  Unicode  internally.</p>
+
+
+
+
+
+
+<div class="letter_anchor" id="e">E</div>
+
+<p><dfn id="def_extended_language_range" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Extended language range</dfn>. A <a href="#def_language_range" class="termref" id="ref-for-def_language_range-2">language range</a> consisting of a sequence of hyphen-separated subtags. In an extended language range, a subtag can either be a valid subtag or the wildcard subtag <q><code>*</code></q>, which matches any value.</p>
+
+
+
+
+
+<div class="letter_anchor" id="f">F</div>
+
+<p><dfn id="def_field_based_format" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Field-based formats</dfn> divide the date and/or time into separate field values such as year, month, day, hour, minute, second, etc. such as <samp>2016-09-11T06:10:32</samp>. Contrast this with an alternative way to express the same time, <samp>1465621816590</samp>, which is not field-based and is rather hard to read. Field-based times may or may not be tied to either <a href="#def_utc" class="termref" id="ref-for-def_utc-1">UTC</a> or the local time zone – or they may be indeterminate. Field-based times are also typically tied to a specific calendar (such as the Gregorian calendar). The formats described by the ISO 8601 standard are field-based.</p>
+
+<p><dfn id="dfn-first-strong-detection" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">First-strong detection</dfn> is an algorithm that looks for the first strongly-directional character in a string (while ignoring embedded runs of isolated text), and then uses that to guess at the appropriate base direction for the string as a whole. Unicode code points are associated with properties relating to text direction: generally, letters in right-to-left scripts such as Arabic and Hebrew have a strong RTL direction, whereas Latin and Han characters have a strong LTR direction. Other characters, such as punctuation, only have a weak intrinsic directionality, and the actual directionality is determined according to the context in which they are found.</p>
+
+<p><dfn id="def_floating_time" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Floating times</dfn> are not fixed to a specific <a href="#def_incremental_time" class="termref" id="ref-for-def_incremental_time-1">incremental time</a> value or time zone. When you apply time zone information to floating times they produce <em>a range of acceptable incremental time values</em>, because they represent a nominal time which is described in the same way in all time zones around the world. For example, Saturday 11 June 2016 happens to be the date of the British Queen's official 90th birthday. The specific time when 11th June starts or ends in Britain may actually be on Friday or Sunday in other countries, because their clocks are set differently, but the date of the event is always referred to as Saturday 11 June. Other examples of floating time events include  the  publication date for an issue of a newspaper, the date the Tokyo Olympics starts, the time the New Year starts, office hours set to "9 to 5" regardless of <a href="#def_time_zone" id="ref-for-def_time_zone-1">time zone</a>, and so on.</p>
+
+
+
+
+
+<div class="letter_anchor" id="g">G</div>
+
+<p><dfn id="def_glyph" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Glyph</dfn>. The visual representation of a character  when rendered by a particular font. In more complex orthographies a glyph may represent only a part of a character, or may represent more than one character. A font is a collection of glyph shapes, and different fonts or font rules can render a given character using a variety of different glyphs. For example, the letter 'a' can be represented using regular (a), bold (<b style="font-weight: bold;">a</b>), or italic (<i style="font-style: italic;">a</i>) glyphs.</p>
+
+<p><dfn data-lt="grapheme|graphemes|Grapheme" id="def_grapheme" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Grapheme</dfn>. A character or a sequence of
+         characters in a visual representation of some text
+          that a typical user would perceive as being a single unit (<q>character</q>).
+          Graphemes are important for a number of text operations such as
+          sorting or text selection, so it is necessary to be able to compute
+          the boundaries between each user-perceived character. For more information about graphemes and grapheme clusters, with examples, see <a href="https://www.w3.org/International/articles/definitions-characters/index#characters">Character encodings: Essential concepts</a>.</p>
+          
+<p><dfn id="def_grapheme_cluster" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Grapheme clusters</dfn> are defined by the Unicode Standard as 
+          the default mechanism for computing an approximation to <a href="#def_grapheme" class="termref" id="ref-for-def_grapheme-1">graphemes</a> (see <cite>Unicode
+            Standard Annex #29: Text Segmentation</cite> [<cite><a class="bibref" data-link-type="biblio" href="#bib-uax29" title="Unicode Text Segmentation">UAX29</a></cite>]). Two types
+          of default grapheme cluster are defined. Unless otherwise noted, <q>grapheme
+          cluster</q> in this document refers to an <q>extended default grapheme
+          cluster</q>. (A discussion of grapheme clusters is also given in Section 2
+           of the <cite>Unicode Standard</cite>, [<cite><a class="bibref" data-link-type="biblio" href="#bib-unicode" title="The Unicode Standard">Unicode</a></cite>]. Cf. near the end of
+           <a href="http://www.unicode.org/versions/latest/ch02.pdf">Section 2.11</a>
+           in version 8.0 of The Unicode Standard.) Because different natural languages have different needs, grapheme clusters
+          can also sometimes require tailoring. For example, a Slovak user might
+          wish to treat the default pair of grapheme clusters "ch" as a single
+          grapheme cluster. Note that the interaction between the language of
+          string content and the end-user's preferences might be complex.</p>
+
+<p><dfn id="def_gregorian_calendar" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Gregorian calendar</dfn>. The  most widely used way of representing civil time. It is a solar calendar, with years usually consisting of 365 days, plus the concept of a "leap year". This adds an additional day every 4 years, except when the year is evenly divisible by 100 (unless the year is also evenly divisible by 400). There are numerous other calendars in use around the world, some of which are lunar calendars, some that are based on a different start date than the Gregorian calendar, and some that are reset each time a prominent person dies. Often these calendars are still used for religious purposes, but sometimes you will also find them being used in newspapers and emails, or for birth dates. There are technologies, such as ICU or Dojo, that support conversion between different calendaring systems.</p>
+
+
+
+
+
+<div class="letter_anchor" id="i">I</div>
+
+<p><dfn id="def_incremental_time" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Incremental time</dfn> is a way of representing time in computers that is based on a  progression of fixed integer units that increase monotonically from a specific point in time (called the "epoch").  Java (and many other systems) count time as the number of milliseconds since midnight (00:00 a.m.) on January 1, 1970 in <a href="#def_utc" class="termref" id="ref-for-def_utc-2">UTC</a> (less all of the intervening leap seconds). Other systems use different units and/or epochs. For example,  the incremental time for 11 June, 2016 at 6.10am BST in JavaScript is <samp>1465621816590</samp>. Most programming languages and operating environments provide or use incremental time for working with time values. However, incremental time is not usually seen directly by users, but is typically mapped to a <a href="#def_field_based_format" class="termref" id="ref-for-def_field_based_format-1">field-based time format</a> for interchange or  for human consumption.</p>
+
+<p><dfn id="internationalization" data-lt="internationalization|I18N|internationalized|Internationalization" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Internationalization</dfn>. The design and development of a product that is enabled for target audiences that vary in culture, region, or language. Internationalization is sometimes abbreviated <code>i18n</code> because there are eighteen letters between the "I" and the "N" in the English word.</p>
+
+<p><dfn id="def_international_preferences" data-lt="international preferences|International Preferences." data-plurals="international preference" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">International Preferences.</dfn> A user's particular set of language and formatting preferences and associated cultural conventions. Software can use these preferences to correctly process or present information exchanged with that user.</p>
+
+<p><dfn data-lt="iana language subtag registry|subtag registry|registry|lstr|IANA Language Subtag Registry" id="def_iana_language_subtag_registry" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">IANA Language Subtag Registry</dfn>. A machine-readable text file available via IANA which contains a comprehensive list of all of the subtags valid in language tags. (Link: <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">Registry</a>)</p>
+
+
+
+
+
+<div class="letter_anchor" id="l">L</div>
+
+
+<p><dfn id="def_language_metadata" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Language metadata</dfn>. When constrasted with the <a href="#def_text_processing_language" class="termref" id="ref-for-def_text_processing_language-1">text-processing language</a>, this indicates the<em> intended use of the resource</em> as a whole.  For example, such metadata may be used for searching for a relevant resource, for serving the right language version, for classification, etc. This type of language declaration differs from that of the text-processing language declaration in that (a)  the value for such declarations may be more than one  language subtag, and (b) the language value declared doesn't indicate which bits of a multilingual resource are in which language.</p>
+
+<p><dfn data-lt="language tag extension|extension|extensions|registered extension|Language tag extension" data-plurals="language tag extensions" id="def_language_tag_extension" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Language tag extension</dfn>. A system of additional [<cite><a class="bibref" data-link-type="biblio" href="#bib-bcp47" title="Tags for Identifying Languages">BCP47</a></cite>] subtags introduced by a single letter or digit subtag registered with IANA and permitting additional types of language identification.</p>
+
+<p><dfn data-lt="language negotiation|Language negotiation" id="dfn-language-negotiation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Language negotiation</dfn> is any process which selects or filters content based on language. Usually this implies selecting content in a single language (or falling back to some meaningful default language that is available) by finding the best matching values when several languages or locales [<cite><a class="bibref" data-link-type="biblio" href="#bib-ltli" title="Language Tags and Locale Identifiers for the World Wide Web">LTLI</a></cite>] are present in the content. Some common language negotiation algorithms include the Lookup algorithm in [<cite><a class="bibref" data-link-type="biblio" href="#bib-bcp47" title="Tags for Identifying Languages">BCP47</a></cite>] or the BestFitMatcher in [<cite><a class="bibref" data-link-type="biblio" href="#bib-ecma-402" title="ECMAScript Internationalization API Specification">ECMA-402</a></cite>].</p>
+
+<p><dfn data-plurals="language priority lists" id="def_language_priority_list" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Language priority list</dfn>. A collection of one or more <a href="#def_language_range" class="termref" id="ref-for-def_language_range-3">language ranges</a> identifying the user's language preferences for use in matching. As the name suggests, such lists are normally ordered or weighted according to the user's preferences. The HTTP [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2616" title="Hypertext Transfer Protocol -- HTTP/1.1">RFC2616</a></cite>] <code>Accept-Language</code> [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3282" title="Content Language Headers">RFC3282</a></cite>] header is an example of one kind of language priority list.</p>
+
+<p><dfn data-lt="language range|range|language-range|language ranges|Language range" id="def_language_range" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Language range</dfn>. A string similar in structure to a language tag that is used for "identifying sets of language tags that share specific attributes".</p>
+
+<p><dfn data-lt="subtag|subtags|Subtag|Language subtag" id="def_subtag" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Language subtag</dfn>. A sequence of ASCII letters or digits separated from other subtags by the hyphen-minus character and identifying a specific element of meaning withing the overall <a href="#def_language_tag" id="ref-for-def_language_tag-2">language tag</a>. In [<cite><a class="bibref" data-link-type="biblio" href="#bib-bcp47" title="Tags for Identifying Languages">BCP47</a></cite>], subtags can consist of upper or lowercase ASCII letters (the case carries no distinction) or ASCII digits. Subtags are limited to no more than eight characters (although additional length restrictions apply depending on the specific use of the subtag).
+</p>
+<p><dfn data-lt="language tag|language tags|Language tag" id="def_language_tag" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Language tag</dfn>. A string used as an identifier for a language, usually referring explicitly to a [<cite><a class="bibref" data-link-type="biblio" href="#bib-bcp47" title="Tags for Identifying Languages">BCP47</a></cite>] language tag. These language tags consist of one or more subtags.
+</p>
+
+<p><dfn data-lt="legacy character encoding|legacy character encodings|Legacy character encodings" id="def_legacy_character_encoding" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Legacy character encodings</dfn> are character encoding forms that do not encode the full repertoire of characters in the Unicode character set.</p>
+
+<p><dfn id="locale" data-lt="locale|locales|Locale" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Locale</dfn>. An identifier (such as a <a href="#def_language_tag" class="termref" id="ref-for-def_language_tag-3">language tag</a>) for a set of <a href="#def_international_preferences" class="termref" id="ref-for-def_international_preferences-1">international preferences</a>. Usually this identifier indicates the preferred language of the user and possibly includes other information, such as a geographic region (such as a country). A locale is passed in APIs or set in the operating environment to obtain culturally-affected behavior within a system or process.</p>
+
+<p><dfn data-lt="locale aware|locale-aware|enabled|enable|Locale-aware" id="def_locale_aware" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Locale-aware</dfn> (or <em>Enabled</em>). A system that can respond to changes in the <a href="#locale" class="termref" id="ref-for-locale-2">locale</a> with culturally and language-specific behavior or content. Generally, systems that are internationalized can support a wide range of <a href="#locale" class="termref" id="ref-for-locale-3">locales</a> in order to meet the <a href="#def_international_preferences" class="termref" id="ref-for-def_international_preferences-2">international preferences</a> of many kinds of users.</p>
+
+<p><dfn data-lt="locale fallback|fallback|Locale fallback" id="def_locale_fallback" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Locale fallback</dfn>. The process of searching for translated content, locale data, or other resources by "falling back" from more-specific resources to more-general ones following a deterministic pattern.</p>
+
+<p><dfn data-lt="locale-neutral|locale neutral|Locale-neutral" id="def_locale_neutral" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Locale-neutral</dfn>. A <a href="#def_non_linguistic_field" class="termref" id="ref-for-def_non_linguistic_field-1">non-linguistic field</a> is said to be <a href="#def_locale_neutral" class="termref" id="ref-for-def_locale_neutral-1">locale-neutral</a> when it is stored or exchanged in a format that is not specifically appropriate for any given language, locale, or culture and which can be interpreted unambiguously for presentation in a <a href="#def_locale_aware" class="termref" id="ref-for-def_locale_aware-1">locale aware</a> way.</p>
+
+<p><dfn id="def_localizable_content" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Localizable content</dfn>.  Document contents intended as human-readable text and <b>not</b> to any of the surrounding or embedded syntactic content that form part of the document structure. Note that syntactic content can have localizable content embedded in it, such as when an [<cite><a class="bibref" data-link-type="biblio" href="#bib-html" title="HTML Standard">HTML</a></cite>] <code class="kw">img</code> element has an <code class="kw">alt</code> attribute containing a description of the image.  </p>
+
+<p><dfn data-lt="localization|localized|L10N|Localization" id="def_localization" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Localization</dfn>. The tailoring of a system to the individual cultural expectations of a specific target market or group of individuals. Localization includes, but is not limited to, the translation of user-facing text and messages. Localization is sometimes abbreviated as <code>l10n</code> because there are ten letters between the "L" and the "N" in the English word. When a particular set of content and preferences corresponding to a specific set of international preferences is operationally available, then the system is said to be <em>localized</em>.</p>
+
+<p><dfn data-lt="logical order|Logical order" id="def_logical_order" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Logical order</dfn>. Some scripts, in particular Arabic and Hebrew, are written from right to left. Text including characters from these scripts can run in both directions and is therefore called <a class="termref" href="#def_bidirectional_text" id="ref-for-def_bidirectional_text-2">bidirectional text</a>. The Unicode Standard
+[<cite><a class="bibref" data-link-type="biblio" href="#bib-unicode" title="The Unicode Standard">Unicode</a></cite>] requires that characters be stored and interchanged in logical order, i.e. roughly corresponding to the order in which text is typed in via the keyboard or spoken (for a more detailed definition see [<cite><a class="bibref" data-link-type="biblio" href="#bib-unicode" title="The Unicode Standard">Unicode</a></cite>], Section 2.2). Logical ordering is important to ensure interoperability of data, and also benefits accessibility, searching, and collation.
+</p>
+
+<p><dfn id="dfn-ltr" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">LTR</dfn> stands for "left-to-right" and refers to the inline base direction of left-to-right [<cite><a class="bibref" data-link-type="biblio" href="#bib-uax9" title="Unicode Bidirectional Algorithm">UAX9</a></cite>]. This is the base text direction used by languages whose starting character progression begins on the left side of the page in horizontal text. It's used for scripts such as Latin, Cyrillic, Devanagari, and many others.</p>
+
+
+
+
+<div class="letter_anchor" id="m">M</div>
+
+<p><dfn data-lt="metadata|Metadata" id="def_metadata" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Metadata</dfn> is additional information about data. Key types of metadata for <a class="termref" href="#internationalization" id="ref-for-internationalization-1">internationalization</a> are <a class="termref" href="#def_language_metadata" id="ref-for-def_language_metadata-1">language metadata</a> and metadata to support <a class="termref" href="#def_bidirectional_text" id="ref-for-def_bidirectional_text-3">bidirectional text</a>. Metadata has a scope, e.g., a string or a set of strings. In absence of explicit metadata, defaults might apply, e.g. defaults for the <a class="termref" href="#def_base_direction" id="ref-for-def_base_direction-1">base direction</a> of a text.</p>
+
+
+
+
+
+<div class="letter_anchor" id="n">N</div>
+	
+<p><dfn data-lt="natural language|language|Natural Language" id="def_natural_language" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Natural Language</dfn> (sometimes just <em>language</em>) refers to the spoken, written, or signed communications used by human beings.</p>
+
+<p><dfn data-lt="non-linguistic field|field|non-linguistic fields|fields|Non-linguistic Field" id="def_non_linguistic_field" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Non-linguistic Field</dfn>. Any element of a data structure not intended for the storage or interchange of natural language textual data. This includes non-string data types, such as booleans, numbers, dates, and so forth. It also includes strings, such as program or protocol internal identifiers. This document uses the term <em>field</em> as a short hand for this concept.</p>
+
+<div class="letter_anchor" id="p">P</div>
+	
+<p><dfn id="dfn-producer" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Producer</dfn>. When talking about strings on the Web, the <abbr title="World Wide Web Consortium">W3C</abbr> Internationalization group refers to a producer as any process where natural language string data is created for later storage, processing, or interchange.</p>
+
+<p><dfn id="dfn-paragraph-direction" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Paragraph direction</dfn>. The initial <a href="#def_base_direction" class="internalDFN" data-link-type="dfn" id="ref-for-def_base_direction-2">base direction</a>  of  a paragraph or string, which resolves to either <em>left-to-right</em> or <em>right-to-left</em>. Nested embedding controls may be used to change the direction of an inline range of text, but the paragraph direction sets the starting point which the <a href="#def_uba" class="internalDFN" data-link-type="dfn" id="ref-for-def_uba-3">Unicode Bidirectional Algorithm</a> uses  to calculate the directions of the embedded levels. For more details, see <a href="http://www.unicode.org/reports/tr9/">Unicode Standard Annex #9, Unicode Bidirectional Algorithm</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-uax9" title="Unicode Bidirectional Algorithm">UAX9</a></cite>], especially definitions BD2–BD5.<br><span class="see-also">See also the definition in the <a href="https://www.unicode.org/glossary/#paragraph_direction">Unicode Standard</a>.</span></p>
+
+
+
+
+<div class="letter_anchor" id="r">R</div>
+
+<p><dfn data-lt="resource|resources|Resource" id="def_resource" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Resource</dfn>. In the context of <abbr title="World Wide Web Consortium">W3C</abbr> Internationalization documents,   a given document, file, or protocol "message" which includes both the <a href="#def_localizable_content" class="termref" id="ref-for-def_localizable_content-2">localizable content</a> as well as the <a href="#def_syntactic_content" class="termref" id="ref-for-def_syntactic_content-1">syntactic content</a> such as identifiers surrounding or containing it. For example, in an HTML document that also has some CSS and a few <code class="kw" translate="no">script</code> elements with embedded JavaScript, the entire HTML document, considered as a file, is a resource. This term is intentionally similar to the term 'resource' as used in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3986" title="Uniform Resource Identifier (URI): Generic Syntax">RFC3986</a></cite>], although here the term is applied loosely. </p>
+
+<p><dfn id="dfn-rtl" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">RTL</dfn> stands for "right-to-left" and refers to the inline base direction of right-to-left [<cite><a class="bibref" data-link-type="biblio" href="#bib-uax9" title="Unicode Bidirectional Algorithm">UAX9</a></cite>]. This is the base text direction used by languages whose starting character progression begins on the right side of the page in horizontal text. It's used for a variety of scripts which include Arabic, Hebrew, N'Ko, Adlam, Thaana, and Syriac among others.</p>
+
+
+
+
+<div class="letter_anchor" id="s">S</div>
+
+<p><dfn data-lt="agreement|agreements|serialization agreement|serialization agreements|serialization|Serialization agreement" id="dfn-agreement" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Serialization agreement</dfn>. When talking about strings on the Web, the <abbr title="World Wide Web Consortium">W3C</abbr> Internationalization group refers to serialization agreements as the common understanding between a producer and consumer about the serialization of string metadata: how it is to be understood, serialized, read, transmitted, removed, etc.</p>
+
+<p><dfn data-lt="supplementary characters|Supplementary characters" id="dfn-supplementary-characters" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Supplementary characters</dfn>. Beyond the <a class="termref" href="#def_bmp" id="ref-for-def_bmp-1">Basic Multilingual Plane</a> the Unicode character set also contains space for around a million additional code point positions. Characters in this latter range are referred to as supplementary characters. In the UTF-16 encoding, supplementary characters are encoded using a pairs of surrogate characters.</p>
+
+<p><dfn data-lt="syntactic content|Syntactic content" id="def_syntactic_content" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Syntactic content</dfn> is any text in a document format or protocol that belongs to the structure of the format or protocol. This definition includes values that are typically thought of as "markup" but can also include other values, such as the name of a field in an HTTP header. Syntactic content consists of all of the characters that form the <em>structure</em> of a format or protocol. For example, <span class="qchar">&lt;</span> and <span class="qchar">&gt;</span> (as well as the element name and various attributes they surround) are part of the syntactic content in an HTML document. Syntactic content usually is defined by a specification or specifications and includes both the defined, reserved keywords for the given protocol or format as well as string tokens and identifiers that are defined by document authors to form the structure of the document (rather than the "content" of the document).</p>
+
+
+
+
+<div class="letter_anchor" id="t">T</div>
+
+<p><dfn id="def_text_processing_language" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Text-processing language</dfn>. The language in which a specific range of text is actually written. This needs to be declared so that user agents or applications that manipulate the text, such as voice browsers, spell checkers,  style processors, hyphenators, etc., can apply the appropriate rules to the text in question. So we are, by necessity, talking about associating a <em>single</em> language with a <em>specific</em> range of text. Contrast this with <a href="#def_language_metadata" class="termref" id="ref-for-def_language_metadata-2">language metadata</a>.</p>
+
+<p><dfn id="def_time_zone" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Time zone</dfn>.  A set of rules for determining the local  time (wall time) as it relates to incremental time (as used in most computing systems) for a particular geographical region, and vice versa. Time zone rules have to take into account <a href="#def_zone_offset" class="termref" id="ref-for-def_zone_offset-2"> zone offsets</a> <em>plus</em> any <a href="#def_dst" class="termref" id="ref-for-def_dst-1">daylight savings</a> modifications to wall time that apply.</p>
+
+<p><dfn id="def_time_zone_id" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Time zone identifiers</dfn> allow you to refer to a particular difference from <a href="#def_utc" class="termref" id="ref-for-def_utc-3">UTC</a> that includes both <a href="#def_zone_offset" class="termref" id="ref-for-def_zone_offset-3"> zone offsets</a> and <a href="#def_dst" class="termref" id="ref-for-def_dst-2">daylight savings time</a>. The most definitive reference for identifying sets of time zone rules is the <a href="https://www.iana.org/time-zones">TZ database</a> (also known as the Olson time zone database), which is used by systems such as various commercial UNIX operating systems, Linux, Java, CLDR, ICU, and many other systems and libraries. Other systems exist: for example, Microsoft Windows uses its own data set and identifiers. In the TZ database, time zones are given IDs that typically consist of a region and exemplar city. An exemplar city is a city in the time zone in question that should be well-known to people using the time zone. For example, the U.S. Pacific time zone has a TZ database ID of <code class="kw" translate="no">America/Los_Angeles</code>. The TZ database also supplies aliases for many IDs; for example, <code class="kw" translate="no">Asia/Ulan Bator</code> is equivalent to <code class="kw" translate="no">Asia/Ulaanbaatar</code>. The Common Locale Data Repository (CLDR) can be used to provide a localized form for the IDs. Note that some systems, such as Apple's Mac OS, provide additional exemplar cities.</p>
+
+<p><dfn data-lt="transcoder|transcoders|Transcoder" id="dfn-transcoder" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Transcoder</dfn>. A process that converts 
+text between two character encodings. Most commonly in <abbr title="World Wide Web Consortium">W3C</abbr> internationalization documents it 
+refers to a process that converts from a <a href="#def_legacy_character_encoding" class="termref" id="ref-for-def_legacy_character_encoding-1">legacy character encoding</a> to a <a href="http://www.w3.org/TR/2005/REC-charmod-20050215/#Unicode_Encoding_Form">Unicode encoding form</a>, such as UTF-8.</p>
+
+
+
+
+<div class="letter_anchor" id="u">U</div>
+
+<p><dfn data-lt="unicode bidirectional algorithm|unicode bidi algorithm|bidi algorithm|UBA|Unicode Bidirectional Algorithm" id="def_uba" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Unicode Bidirectional Algorithm</dfn> or <em>Bidi algorithm</em>. This is the name for the rules described in the <a href="http://www.unicode.org/reports/tr9/">Unicode Standard Annex #9, “Unicode Bidirectional Algorithm</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-uax9" title="Unicode Bidirectional Algorithm">UAX9</a></cite>].  Those rules describe how inline <a href="#def_bidirectional_text" class="termref" id="ref-for-def_bidirectional_text-4">bidirectional text</a> should be rendered for scripts such as Arabic, Hebrew, Thaana, N'Ko, Adlam, etc. The effects of the bidi algorithm depend on the   <a href="#def_base_direction" class="termref" id="ref-for-def_base_direction-3">base direction</a> and the directional properties of the characters to which it is applied.</p>
+
+<p><dfn data-lt="unicode locale|unicode locale identifier|unicode locale identifiers|unicode locales|Unicode Locale Identifier" id="def_unicode_locale" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Unicode Locale Identifier</dfn> or <em>Unicode Locale</em>. A <a href="#def_language_tag" class="termref" id="ref-for-def_language_tag-4">language tag</a> that follows the additional rules and restrictions on subtag choice defined in UTR#35 [<cite><a class="bibref" data-link-type="biblio" href="#bib-uax35" title="Unicode Locale Data Markup Language (LDML)">UAX35</a></cite>]. Any valid Unicode locale identifier is also a <a href="#def_valid" class="termref" id="ref-for-def_valid-2">valid</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-bcp47" title="Tags for Identifying Languages">BCP47</a></cite>] <a href="#def_language_tag" class="termref" id="ref-for-def_language_tag-5">language tag</a>, but a few <a href="#def_valid" class="termref" id="ref-for-def_valid-3">valid language tags</a> are not also valid Unicode locale identifiers.</p>
+
+<p><dfn id="def_utc" data-lt="utc|Universal Coordinated Time (UTC)" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Universal Coordinated Time (UTC)</dfn> is the basis for modern timekeeping. Among other things, it provides a common baseline for converting between <a href="#def_incremental_time" class="termref" id="ref-for-def_incremental_time-2">incremental</a> and <a href="#def_wall_time" class="termref" id="ref-for-def_wall_time-1">wall</a> time. UTC is also known as GMT (Greenwich Mean Time). There are some subtle differences between the two, but none that  the average person would notice. 
+The time zone offset for UTC is 0. UTC is often indicated in <a href="#def_field_based_format" class="termref" id="ref-for-def_field_based_format-2">field-based formats</a> using <code class="kw" translate="no">Z</code>.</p>
+
+<p><dfn data-plurals="user-facing identifiers" id="def_user_facing_identifier" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">User-facing identifiers</dfn> are identifiers defined by or assigned by a user in a <a href="#def_vocabulary" class="termref" id="ref-for-def_vocabulary-3">vocabulary</a> that is intended to be at least potentially visible to end-users (and thus is <a href="#def_localizable_content" class="termref" id="ref-for-def_localizable_content-3">localizable content</a>).</p>
+
+<p><span class="alt_name">User-percieved character</span>. See <a class="termref" href="#def_grapheme" id="ref-for-def_grapheme-2">grapheme</a>.</p>
+
+<p><dfn data-lt="user-supplied value|user-supplied values|User-supplied value" id="def_user_supplied_value" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">User-supplied value</dfn>. Unreserved <a href="#def_syntactic_content" class="termref" id="ref-for-def_syntactic_content-2">syntactic content</a> in a <a href="#def_vocabulary" class="termref" id="ref-for-def_vocabulary-4">vocabulary</a> that is assigned by users, as distinct from reserved keywords in a given format or protocol. Users generally expect that their user-supplied values can be words or phrases in their preferred <a href="#def_natural_language" class="termref" id="ref-for-def_natural_language-1">natural language</a>. This is why [<cite><a class="bibref" data-link-type="biblio" href="#bib-charmod" title="Character Model for the World Wide Web 1.0: Fundamentals">CHARMOD</a></cite>] recommends that "Specifications <em class="rfc2119"><em class="rfc2119">SHOULD NOT</em></em> arbitrarily exclude code points from the full range of Unicode code points from <code>U+0000</code> to <code>U+10FFFF</code> inclusive." </p>
+
+
+
+
+
+<div class="letter_anchor" id="v">V</div>
+
+<p><dfn data-lt="valid|valid language tag|valid language tags|Valid language tag" id="def_valid" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Valid language tag</dfn>. A language tag that is <a href="#def_well_formed" class="termref" id="ref-for-def_well_formed-2">well-formed</a> and which also conforms to the additional <a href="https://www.rfc-editor.org/rfc/rfc5646.html#section-2.2.9">conformance requirements</a> in [<cite><a class="bibref" data-link-type="biblio" href="#bib-bcp47" title="Tags for Identifying Languages">BCP47</a></cite>], notably that each of the subtags appears in the IANA Language Subtag Registry.</p>
+
+<p><dfn id="def_vocabulary" data-plurals="vocabularies" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Vocabulary</dfn>. The list of reserved keywords and/or rules for assigning <a href="#def_user_supplied_value" class="termref" id="ref-for-def_user_supplied_value-1">user-supplied values</a> (such as identifiers) in a format or protocol. This can include restrictions on range, order, or type of characters that can appear in different places. For example, HTML defines the names of its elements and attributes, as well as enumerated attribute values, which defines the "vocabulary" of HTML <a href="#def_syntactic_content" class="termref" id="ref-for-def_syntactic_content-3">syntactic content</a>. Another example would be ECMAScript, which restricts the range of characters that can appear at the start or in the body of an identifier or variable name. It applies different rules for other cases, such as to the values of string literals. Values within a vocabulary fall into two broad classes: those that are meant to be seen, read, or interacted with by humans (and thus might be expected to contain natural language text); and those that are application or protocol internal and not intended for human interaction.</p>
+
+
+
+
+
+
+<div class="letter_anchor" id="w">W</div>
+
+<p><dfn id="def_wall_time" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Wall time</dfn> or <dfn id="def_local_time" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">local time</dfn> is a  moment in time that can be mapped to a specific point in <a href="#def_incremental_time" class="termref" id="ref-for-def_incremental_time-3">incremental time</a> if you apply any relevant time zone information, but it corresponds to what a person would recognise the time to be if they looked at a clock and/or calendar mounted on a wall in a particular place. So, for example,  the time displayed by a computer in the UK may be <samp>Sat 11 Jun 06:10</samp>. By applying knowledge about how that time relates to <a href="#def_utc" class="termref" id="ref-for-def_utc-4">UTC</a> (in this case, adjusting by one hour to account for British Summer Time) it is possible to convert that to the incremental time <samp>1465621816590</samp>. It's also possible to convert that to a wall time in another location, such as San Francisco, where someone  looking at their computer's time display at the same time would have seen <samp>Fri 10 Jun 22:10</samp>.</p>
+
+
+
+<p><dfn data-lt="well-formed|well-formed language tag|well-formed language tags|Well-formed language tag" id="def_well_formed" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Well-formed language tag</dfn>. A language tag that follows the grammar defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-bcp47" title="Tags for Identifying Languages">BCP47</a></cite>]. That is, it is structurally correct, consisting of ASCII letters and digit <a href="#def_subtag" class="termref" id="ref-for-def_subtag-1">subtags</a> of the prescribed length, separated by hyphens.</p>
+
+
+
+
+<div class="letter_anchor" id="z">Z</div>
+
+<p><dfn id="def_zone_offset" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Zone offset</dfn>. An amount that is added to or subtracted from <a href="#def_utc" class="termref" id="ref-for-def_utc-5">UTC</a> based on the location of the event around the world relative to the prime meridian. Usually offsets are at one-hour intervals, but offsets can also include other differences, such as 30 or 45 minutes. A common way to express a zone offset in field-based formats is with +/- followed by the offset. So for example, Japan is 9 hours ahead of UTC, so you may see a time written as <samp>2016-06-11 05:10+09:00</samp>. Note, importantly, that the zone offset does not help you convert times to wall time where <a href="#def_dst" class="termref" id="ref-for-def_dst-3">daylight savings time</a> is in force.</p>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="references" class="appendix"><h2 id="a-references"><bdi class="secno">A. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="informative-references">
+    <h3 id="a-1-informative-references"><bdi class="secno">A.1 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
+    <dl class="bibliography"><dt id="bib-bcp47">[BCP47]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc5646"><cite>Tags for Identifying Languages</cite></a>. A. Phillips, Ed.; M. Davis, Ed..  IETF. September 2009. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc5646">https://www.rfc-editor.org/rfc/rfc5646</a></dd><dt id="bib-charmod">[CHARMOD]</dt><dd><a href="https://www.w3.org/TR/charmod/"><cite>Character Model for the World Wide Web 1.0: Fundamentals</cite></a>. Martin Dürst; François Yergeau; Richard Ishida; Misha Wolf; Tex Texin et al.  W3C. 15 February 2005. W3C Recommendation. URL: <a href="https://www.w3.org/TR/charmod/">https://www.w3.org/TR/charmod/</a></dd><dt id="bib-cldr">[CLDR]</dt><dd><a href="http://cldr.unicode.org/"><cite>Unicode Common Locale Data Repository</cite></a>.  Unicode Consortium. URL: <a href="http://cldr.unicode.org/">http://cldr.unicode.org/</a></dd><dt id="bib-ecma-402">[ECMA-402]</dt><dd><a href="https://tc39.es/ecma402/"><cite>ECMAScript Internationalization API Specification</cite></a>.  Ecma International. URL: <a href="https://tc39.es/ecma402/">https://tc39.es/ecma402/</a></dd><dt id="bib-html">[HTML]</dt><dd><a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a></dd><dt id="bib-infra">[INFRA]</dt><dd><a href="https://infra.spec.whatwg.org/"><cite>Infra Standard</cite></a>. Anne van Kesteren; Domenic Denicola.  WHATWG. Living Standard. URL: <a href="https://infra.spec.whatwg.org/">https://infra.spec.whatwg.org/</a></dd><dt id="bib-ltli">[LTLI]</dt><dd><a href="https://www.w3.org/TR/ltli/"><cite>Language Tags and Locale Identifiers for the World Wide Web</cite></a>. Addison Phillips.  W3C. 7 October 2020. W3C Working Draft. URL: <a href="https://www.w3.org/TR/ltli/">https://www.w3.org/TR/ltli/</a></dd><dt id="bib-rfc2616">[RFC2616]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc2616"><cite>Hypertext Transfer Protocol -- HTTP/1.1</cite></a>. R. Fielding; J. Gettys; J. Mogul; H. Frystyk; L. Masinter; P. Leach; T. Berners-Lee.  IETF. June 1999. Draft Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc2616">https://www.rfc-editor.org/rfc/rfc2616</a></dd><dt id="bib-rfc3282">[RFC3282]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3282"><cite>Content Language Headers</cite></a>. H. Alvestrand.  IETF. May 2002. Draft Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3282">https://www.rfc-editor.org/rfc/rfc3282</a></dd><dt id="bib-rfc3986">[RFC3986]</dt><dd><a href="https://www.rfc-editor.org/rfc/rfc3986"><cite>Uniform Resource Identifier (URI): Generic Syntax</cite></a>. T. Berners-Lee; R. Fielding; L. Masinter.  IETF. January 2005. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a></dd><dt id="bib-uax29">[UAX29]</dt><dd><a href="https://www.unicode.org/reports/tr29/tr29-39.html"><cite>Unicode Text Segmentation</cite></a>. Mark Davis; Christopher Chapman.  Unicode Consortium. 24 August 2021. Unicode Standard Annex #29. URL: <a href="https://www.unicode.org/reports/tr29/tr29-39.html">https://www.unicode.org/reports/tr29/tr29-39.html</a></dd><dt id="bib-uax35">[UAX35]</dt><dd><a href="https://www.unicode.org/reports/tr35/tr35-61/tr35.html"><cite>Unicode Locale Data Markup Language (LDML)</cite></a>. Mark Davis et al.  Unicode Consortium. 23 October 2020. Unicode Technical Standard #35. URL: <a href="https://www.unicode.org/reports/tr35/tr35-61/tr35.html">https://www.unicode.org/reports/tr35/tr35-61/tr35.html</a></dd><dt id="bib-uax9">[UAX9]</dt><dd><a href="https://www.unicode.org/reports/tr9/tr9-44.html"><cite>Unicode Bidirectional Algorithm</cite></a>. Mark Davis; Aharon Lanin; Andrew Glass.  Unicode Consortium. 27 August 2021. Unicode Standard Annex #9. URL: <a href="https://www.unicode.org/reports/tr9/tr9-44.html">https://www.unicode.org/reports/tr9/tr9-44.html</a></dd><dt id="bib-unicode">[Unicode]</dt><dd><a href="https://www.unicode.org/versions/latest/"><cite>The Unicode Standard</cite></a>.  Unicode Consortium. URL: <a href="https://www.unicode.org/versions/latest/">https://www.unicode.org/versions/latest/</a></dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-application-internal-identifier" aria-label="Links in this document to definition: Application internal identifiers">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-application-internal-identifier" aria-label="Permalink for definition: Application internal identifiers. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_ascii_case-insensitive" aria-label="Links in this document to definition: ASCII case-insensitive matching">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_ascii_case-insensitive" aria-label="Permalink for definition: ASCII case-insensitive matching. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_base_direction" aria-label="Links in this document to definition: Base direction">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_base_direction" aria-label="Permalink for definition: Base direction. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_base_direction-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_base_direction-2" title="Reference 2">(2)</a> <a href="#ref-for-def_base_direction-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_bmp" aria-label="Links in this document to definition: Basic Multilingual Plane (BMP)">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_bmp" aria-label="Permalink for definition: Basic Multilingual Plane (BMP). Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_bmp-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_bidirectional_text" aria-label="Links in this document to definition: Bidirectional text">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_bidirectional_text" aria-label="Permalink for definition: Bidirectional text. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_bidirectional_text-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_bidirectional_text-2" title="Reference 2">(2)</a> <a href="#ref-for-def_bidirectional_text-3" title="Reference 3">(3)</a> <a href="#ref-for-def_bidirectional_text-4" title="Reference 4">(4)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_basic_language_range" aria-label="Links in this document to definition: Basic language range">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_basic_language_range" aria-label="Permalink for definition: Basic language range. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-bidi-isolation" aria-label="Links in this document to definition: Bidi isolation">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-bidi-isolation" aria-label="Permalink for definition: Bidi isolation. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_canonical_unicode_locale_identifier" aria-label="Links in this document to definition: Canonical Unicode locale identifier">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_canonical_unicode_locale_identifier" aria-label="Permalink for definition: Canonical Unicode locale identifier. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_encoding" aria-label="Links in this document to definition: Character encoding">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_encoding" aria-label="Permalink for definition: Character encoding. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_character_set" aria-label="Links in this document to definition: Character set">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_character_set" aria-label="Permalink for definition: Character set. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_case_mapping" aria-label="Links in this document to definition: Case mapping">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_case_mapping" aria-label="Permalink for definition: Case mapping. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_case_mapping-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_case_folding" aria-label="Links in this document to definition: Case folding">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_case_folding" aria-label="Permalink for definition: Case folding. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_case_folding-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_case_sensitive" aria-label="Links in this document to definition: Case sensitive matching">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_case_sensitive" aria-label="Permalink for definition: Case sensitive matching. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_coded_character_set" aria-label="Links in this document to definition: Coded character set">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_coded_character_set" aria-label="Permalink for definition: Coded character set. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_coded_character_set-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_code_point" aria-label="Links in this document to definition: Code point">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_code_point" aria-label="Permalink for definition: Code point. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_code_point-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_unicode_code_point" aria-label="Links in this document to definition: Unicode code point">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_unicode_code_point" aria-label="Permalink for definition: Unicode code point. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_unicode_code_point-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_common_locale_data_repository" aria-label="Links in this document to definition: Common Locale Data Repository">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_common_locale_data_repository" aria-label="Permalink for definition: Common Locale Data Repository. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_common_locale_data_repository-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-consumer" aria-label="Links in this document to definition: Consumer">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-consumer" aria-label="Permalink for definition: Consumer. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_dst" aria-label="Links in this document to definition: Daylight Saving Time">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_dst" aria-label="Permalink for definition: Daylight Saving Time. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_dst-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_dst-2" title="Reference 2">(2)</a> <a href="#ref-for-def_dst-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_document_character_set" aria-label="Links in this document to definition: Document character set">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_document_character_set" aria-label="Permalink for definition: Document character set. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_extended_language_range" aria-label="Links in this document to definition: Extended language range">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_extended_language_range" aria-label="Permalink for definition: Extended language range. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_field_based_format" aria-label="Links in this document to definition: Field-based formats">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_field_based_format" aria-label="Permalink for definition: Field-based formats. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_field_based_format-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_field_based_format-2" title="Reference 2">(2)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-first-strong-detection" aria-label="Links in this document to definition: First-strong detection">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-first-strong-detection" aria-label="Permalink for definition: First-strong detection. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_floating_time" aria-label="Links in this document to definition: Floating times">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_floating_time" aria-label="Permalink for definition: Floating times. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_glyph" aria-label="Links in this document to definition: Glyph">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_glyph" aria-label="Permalink for definition: Glyph. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_grapheme" aria-label="Links in this document to definition: Grapheme">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_grapheme" aria-label="Permalink for definition: Grapheme. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_grapheme-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_grapheme-2" title="Reference 2">(2)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_grapheme_cluster" aria-label="Links in this document to definition: Grapheme clusters">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_grapheme_cluster" aria-label="Permalink for definition: Grapheme clusters. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_gregorian_calendar" aria-label="Links in this document to definition: Gregorian calendar">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_gregorian_calendar" aria-label="Permalink for definition: Gregorian calendar. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_incremental_time" aria-label="Links in this document to definition: Incremental time">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_incremental_time" aria-label="Permalink for definition: Incremental time. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_incremental_time-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_incremental_time-2" title="Reference 2">(2)</a> <a href="#ref-for-def_incremental_time-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-internationalization" aria-label="Links in this document to definition: Internationalization">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#internationalization" aria-label="Permalink for definition: Internationalization. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-internationalization-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_international_preferences" aria-label="Links in this document to definition: International Preferences.">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_international_preferences" aria-label="Permalink for definition: International Preferences.. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_international_preferences-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_international_preferences-2" title="Reference 2">(2)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_iana_language_subtag_registry" aria-label="Links in this document to definition: IANA Language Subtag Registry">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_iana_language_subtag_registry" aria-label="Permalink for definition: IANA Language Subtag Registry. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_iana_language_subtag_registry-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_language_metadata" aria-label="Links in this document to definition: Language metadata">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_language_metadata" aria-label="Permalink for definition: Language metadata. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_language_metadata-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_language_metadata-2" title="Reference 2">(2)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_language_tag_extension" aria-label="Links in this document to definition: Language tag extension">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_language_tag_extension" aria-label="Permalink for definition: Language tag extension. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-language-negotiation" aria-label="Links in this document to definition: Language negotiation">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-language-negotiation" aria-label="Permalink for definition: Language negotiation. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_language_priority_list" aria-label="Links in this document to definition: Language priority list">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_language_priority_list" aria-label="Permalink for definition: Language priority list. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_language_range" aria-label="Links in this document to definition: Language range">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_language_range" aria-label="Permalink for definition: Language range. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_language_range-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_language_range-2" title="Reference 2">(2)</a> <a href="#ref-for-def_language_range-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_subtag" aria-label="Links in this document to definition: Language subtag">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_subtag" aria-label="Permalink for definition: Language subtag. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_subtag-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_language_tag" aria-label="Links in this document to definition: Language tag">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_language_tag" aria-label="Permalink for definition: Language tag. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_language_tag-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_language_tag-2" title="Reference 2">(2)</a> <a href="#ref-for-def_language_tag-3" title="Reference 3">(3)</a> <a href="#ref-for-def_language_tag-4" title="Reference 4">(4)</a> <a href="#ref-for-def_language_tag-5" title="Reference 5">(5)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_legacy_character_encoding" aria-label="Links in this document to definition: Legacy character encodings">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_legacy_character_encoding" aria-label="Permalink for definition: Legacy character encodings. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_legacy_character_encoding-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-locale" aria-label="Links in this document to definition: Locale">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#locale" aria-label="Permalink for definition: Locale. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-locale-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-locale-2" title="Reference 2">(2)</a> <a href="#ref-for-locale-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_locale_aware" aria-label="Links in this document to definition: Locale-aware">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_locale_aware" aria-label="Permalink for definition: Locale-aware. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_locale_aware-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_locale_fallback" aria-label="Links in this document to definition: Locale fallback">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_locale_fallback" aria-label="Permalink for definition: Locale fallback. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_locale_neutral" aria-label="Links in this document to definition: Locale-neutral">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_locale_neutral" aria-label="Permalink for definition: Locale-neutral. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_locale_neutral-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_localizable_content" aria-label="Links in this document to definition: Localizable content">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_localizable_content" aria-label="Permalink for definition: Localizable content. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_localizable_content-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_localizable_content-2" title="Reference 2">(2)</a> <a href="#ref-for-def_localizable_content-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_localization" aria-label="Links in this document to definition: Localization">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_localization" aria-label="Permalink for definition: Localization. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_logical_order" aria-label="Links in this document to definition: Logical order">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_logical_order" aria-label="Permalink for definition: Logical order. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ltr" aria-label="Links in this document to definition: LTR">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-ltr" aria-label="Permalink for definition: LTR. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_metadata" aria-label="Links in this document to definition: Metadata">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_metadata" aria-label="Permalink for definition: Metadata. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_natural_language" aria-label="Links in this document to definition: Natural Language">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_natural_language" aria-label="Permalink for definition: Natural Language. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_natural_language-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_non_linguistic_field" aria-label="Links in this document to definition: Non-linguistic Field">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_non_linguistic_field" aria-label="Permalink for definition: Non-linguistic Field. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_non_linguistic_field-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-producer" aria-label="Links in this document to definition: Producer">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-producer" aria-label="Permalink for definition: Producer. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-paragraph-direction" aria-label="Links in this document to definition: Paragraph direction">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-paragraph-direction" aria-label="Permalink for definition: Paragraph direction. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_resource" aria-label="Links in this document to definition: Resource">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_resource" aria-label="Permalink for definition: Resource. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-rtl" aria-label="Links in this document to definition: RTL">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-rtl" aria-label="Permalink for definition: RTL. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-agreement" aria-label="Links in this document to definition: Serialization agreement">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-agreement" aria-label="Permalink for definition: Serialization agreement. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-supplementary-characters" aria-label="Links in this document to definition: Supplementary characters">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-supplementary-characters" aria-label="Permalink for definition: Supplementary characters. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_syntactic_content" aria-label="Links in this document to definition: Syntactic content">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_syntactic_content" aria-label="Permalink for definition: Syntactic content. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_syntactic_content-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_syntactic_content-2" title="Reference 2">(2)</a> <a href="#ref-for-def_syntactic_content-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_text_processing_language" aria-label="Links in this document to definition: Text-processing language">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_text_processing_language" aria-label="Permalink for definition: Text-processing language. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_text_processing_language-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_time_zone" aria-label="Links in this document to definition: Time zone">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_time_zone" aria-label="Permalink for definition: Time zone. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_time_zone-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_time_zone_id" aria-label="Links in this document to definition: Time zone identifiers">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_time_zone_id" aria-label="Permalink for definition: Time zone identifiers. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-transcoder" aria-label="Links in this document to definition: Transcoder">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-transcoder" aria-label="Permalink for definition: Transcoder. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_uba" aria-label="Links in this document to definition: Unicode Bidirectional Algorithm">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_uba" aria-label="Permalink for definition: Unicode Bidirectional Algorithm. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_uba-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_uba-2" title="Reference 2">(2)</a> <a href="#ref-for-def_uba-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_unicode_locale" aria-label="Links in this document to definition: Unicode Locale Identifier">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_unicode_locale" aria-label="Permalink for definition: Unicode Locale Identifier. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_unicode_locale-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_unicode_locale-2" title="Reference 2">(2)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_utc" aria-label="Links in this document to definition: Universal Coordinated Time (UTC)">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_utc" aria-label="Permalink for definition: Universal Coordinated Time (UTC). Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_utc-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_utc-2" title="Reference 2">(2)</a> <a href="#ref-for-def_utc-3" title="Reference 3">(3)</a> <a href="#ref-for-def_utc-4" title="Reference 4">(4)</a> <a href="#ref-for-def_utc-5" title="Reference 5">(5)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_user_facing_identifier" aria-label="Links in this document to definition: User-facing identifiers">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_user_facing_identifier" aria-label="Permalink for definition: User-facing identifiers. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_user_supplied_value" aria-label="Links in this document to definition: User-supplied value">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_user_supplied_value" aria-label="Permalink for definition: User-supplied value. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_user_supplied_value-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_valid" aria-label="Links in this document to definition: Valid language tag">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_valid" aria-label="Permalink for definition: Valid language tag. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_valid-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_valid-2" title="Reference 2">(2)</a> <a href="#ref-for-def_valid-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_vocabulary" aria-label="Links in this document to definition: Vocabulary">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_vocabulary" aria-label="Permalink for definition: Vocabulary. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_vocabulary-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_vocabulary-2" title="Reference 2">(2)</a> <a href="#ref-for-def_vocabulary-3" title="Reference 3">(3)</a> <a href="#ref-for-def_vocabulary-4" title="Reference 4">(4)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_wall_time" aria-label="Links in this document to definition: Wall time">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_wall_time" aria-label="Permalink for definition: Wall time. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_wall_time-1" title="§ 3. Glossary">§ 3. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_local_time" aria-label="Links in this document to definition: local time">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_local_time" aria-label="Permalink for definition: local time. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_well_formed" aria-label="Links in this document to definition: Well-formed language tag">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_well_formed" aria-label="Permalink for definition: Well-formed language tag. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_well_formed-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_well_formed-2" title="Reference 2">(2)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-def_zone_offset" aria-label="Links in this document to definition: Zone offset">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#def_zone_offset" aria-label="Permalink for definition: Zone offset. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-def_zone_offset-1" title="§ 3. Glossary">§ 3. Glossary</a> <a href="#ref-for-def_zone_offset-2" title="Reference 2">(2)</a> <a href="#ref-for-def_zone_offset-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
